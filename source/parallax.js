@@ -369,10 +369,12 @@
   };
 
   Parallax.prototype.setPosition = function(element, x, y) {
+    var origX = x;
+    var origY = y;
     x += 'px';
     y += 'px';
     if (this.transform3DSupport) {
-      this.css(element, 'transform', 'translate3d('+x+','+y+',0)');
+      this.css(element, 'transform', 'translate3d('+x+','+y+',0) rotate('+origX+'deg)');
     } else if (this.transform2DSupport) {
       this.css(element, 'transform', 'translate('+x+','+y+')');
     } else {
