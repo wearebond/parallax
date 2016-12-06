@@ -458,10 +458,12 @@
       var depth = this.depths[i];
       var skewDeg;
       var skew = parseFloat(layer.getAttribute('data-skew'));
+      var disableY = layer.getAttribute('data-disable-y');
       if(skew) skewDeg = (skew * this.vx * depth) + 'deg';
       else skewDeg = null;
       var xOffset = this.vx * depth * (this.invertX ? -1 : 1);
-      var yOffset = this.vy * depth * (this.invertY ? -1 : 1);
+      var yOffset = 0;
+      if(!disableY) yOffset = this.vy * depth * (this.invertY ? -1 : 1);
       if(layer) {
         this.setPosition(layer, xOffset, yOffset, skewDeg);
       }
