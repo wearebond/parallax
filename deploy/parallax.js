@@ -463,7 +463,7 @@
       else skewDeg = null;
       var xOffset = this.vx * depth * (this.invertX ? -1 : 1);
       var yOffset = 0;
-      if(!disableY) yOffset = this.vy * depth * (this.invertY ? -1 : 1);
+      if(!disableY) yOffset = 4 * this.vy * depth * (this.invertY ? -1 : 1);
       if(layer) {
         this.setPosition(layer, xOffset, yOffset, skewDeg);
       }
